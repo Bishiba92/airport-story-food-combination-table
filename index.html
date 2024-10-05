@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Jumbo Airport Story Optimal Facility Food Combinations</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <link rel="stylesheet" type="text/css" href="css/foodTable.css" />
+    <link rel="stylesheet" type="text/css" href="css/comboTable.css" />
+    <link rel="stylesheet" type="text/css" href="css/table.css" />
+    <link rel="stylesheet" type="text/css" href="css/button.css" />
+    <link rel="stylesheet" type="text/css" href="css/scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="css/modal.css" />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="src/firebase.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Jumbo Airport Story Optimal Facility Food Combinations</h1>
+    </div>
+    <div id="modal-container"></div>
+    <div id="main-container">
+      <div id="sidebar">
+        <div class="container" style="justify-content: space-evenly">
+          <a
+            href="https://store.steampowered.com/app/2191480/Jumbo_Airport_Story/"
+            target="_blank"
+          >
+            <img src="images/steam.png" alt="" width="48" height="48" />
+          </a>
+          <a
+            href="https://apps.apple.com/us/app/jumbo-airport-story/id1631867592"
+            target="_blank"
+          >
+            <img src="images/appstore.png" alt="" width="48" height="48" />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=net.kairosoft.android.airport&hl=en&gl=US&pli=1"
+            target="_blank"
+          >
+            <img src="images/googleplay.png" alt="" width="48" height="48" />
+          </a>
+        </div>
+        <button id="toggleFoodsMenu">
+          <span id="toggleFoodsButtonText">Show Foods</span>
+          <svg
+            viewBox="-5 -5 110 110"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"
+            />
+          </svg>
+        </button>
+        <button onclick="openSendMessageForm()">
+          <span>Contact</span>
+          <svg
+            viewBox="-5 -5 110 110"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0,0 C0,0 100,0 100,0 C100,0 100,100 100,100 C100,100 0,100 0,100 C0,100 0,0 0,0"
+            />
+          </svg>
+        </button>
+        <div
+          class="container tableContainer"
+          id="foodsContainer"
+          style="display: none"
+        >
+          <!-- Initially hidden -->
+          <table id="activeFoodsTable">
+            <thead>
+              <div>
+                <tr>
+                  <th>
+                    <input
+                      id="toggleFoodCheckboxes"
+                      type="checkbox"
+                      checked="false"
+                    />
+                  </th>
+                  <!-- Added column for checkboxes -->
+                  <th>Name</th>
+                  <th>Base</th>
+                  <th>Combo</th>
+                </tr>
+              </div>
+            </thead>
+            <tbody>
+              <!-- Food items will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        <div class="text-container">
+          <span class="text">
+            Food popularity value based on food at level 5.<br />
+          </span>
+          <span class="text">
+            <br />
+            Food combo bonus formula:<br />bonus = (FoodA / 2) + (FoodB / 2).
+            Wheter or not it is rounded up or down seems random, this is the
+            cause for why the results can be off by ±1. This tool only rounds
+            down.
+          </span>
+          <span class="text">
+            <br />
+            Facility combo formula:<br />bonus = floor(FoodA / 2).
+          </span>
+          <span class="text">
+            <br />
+            Policy:
+            <br />No data is stored about your identity. This site only saves
+            that you have visited, nothing else.
+            <br />
+            The list you have is saved locally.
+          </span>
+          <span class="text">
+            <br />
+            Version 1.1:
+            <br />Added an auto-save feature so your list stays persistent
+            between uses.
+          </span>
+        </div>
+      </div>
+      <div id="content">
+        <div class="container">
+          <span class="text">Facility:</span>
+          <select id="facilityDropdown">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+          <br />
+          <span class="text">Slots:</span>
+          <select id="slotsDropdown">
+            <option value="3">3</option>
+            <option value="2">2</option>
+          </select>
+          <br />
+          <span class="text">List Items:</span>
+          <input id="listSize" value="15" />
+          <br />
+        </div>
+        <div class="container">
+          <div id="currentlyShowing"></div>
+        </div>
+        <div class="container tableContainer">
+          <table id="combinationTable">
+            <thead>
+              <tr>
+                <th>Foods</th>
+                <th>Base Popularity</th>
+                <th>Boost Popularity</th>
+                <th>Total Popularity</th>
+                <th>Boost Times</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Combinations will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        <span id="foodWarning"></span>
+      </div>
+    </div>
+
+    <div id="footer">version 1.1</div>
+
+    <script src="src/Managers/Cache.js"></script>
+    <script src="src/Managers/ModalManager.js"></script>
+    <script src="src/foods.js"></script>
+    <script src="src/facilities.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>

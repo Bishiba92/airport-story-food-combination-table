@@ -1,0 +1,26 @@
+/*scrollbar.css*/
+
+/* This is the container that has the scrollbar. You can replace .scrollable-element 
+with any other class, id, or element type. */
+table {
+  overflow-y: scroll; /* This will force a scrollbar to appear */
+}
+
+/* This targets the scrollbar's "track" or the area in which it moves */
+.tableContainer::-webkit-scrollbar {
+  width: 10px; /* Adjust width for vertical scrollbar */
+  height: 10px; /* Adjust height for horizontal scrollbar */
+  background-color: #f5f5f5; /* Add your color here */
+}
+
+/* This targets the scrollbar itself */
+.tableContainer::-webkit-scrollbar-thumb {
+  background-color: #336699; /* Add your color here */
+  border-radius: 10px; /* If you want rounded scrollbars */
+  border: 2px solid #f5f5f5; /* Add your color here. This is for a 'gutter' */
+}
+
+/* This targets the scrollbar when it's being clicked or touched, this is optional */
+.tableContainer::-webkit-scrollbar-thumb:active {
+  background-color: #6699cc; /* Add a darker color here */
+}

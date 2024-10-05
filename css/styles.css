@@ -1,0 +1,137 @@
+#facilityDropdown {
+  margin-bottom: 20px;
+}
+#slotsDropdown {
+  margin-bottom: 20px;
+}
+#listSize {
+  margin-bottom: 20px;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-weight: 100;
+  overflow: hidden;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#header {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+  transition: 0.5s;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  height: 50px; /* Adjust as per your design */
+}
+.send-message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-area {
+  width: 100%;
+}
+.email-input {
+  width: 100%;
+}
+.dropdown-option {
+  width: 100%;
+}
+
+#foodWarning {
+  color: red;
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+}
+
+#main-container {
+  display: flex;
+  height: calc(100% - 100px); /* Adjusting for header and footer height */
+}
+
+#sidebar {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%; /* Adjust as per your design */
+  height: 100%;
+  overflow-y: auto; /* Enables vertical scrolling if the content overflows */
+}
+
+#content {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  flex-grow: 1;
+  overflow-y: auto; /* Enables vertical scrolling if the content overflows */
+}
+
+#footer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+  transition: 0.5s;
+  backdrop-filter: blur(15px);
+  height: 50px; /* Adjust as per your design */
+}

@@ -1,0 +1,14 @@
+.send-message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text-area {
+  width: 100%;
+}
+.email-input {
+  width: 100%;
+}
+.dropdown-option {
+  width: 100%;
+}

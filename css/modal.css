@@ -1,0 +1,64 @@
+#modal-container {
+  display: none;
+}
+/* The Modal (background) */
+.modal {
+  backdrop-filter: blur(3px);
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background: linear-gradient(45deg, #49a09daf, #602c8290);
+  backdrop-filter: blur(30px);
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 12px;
+  max-width: 50%;
+  min-width: 20%;
+  width: auto; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Add some style to the sub-container */
+.sub-container {
+  padding: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+.modal-message {
+}
