@@ -27,12 +27,12 @@ function setField(collectionName, docId, fieldName, value) {
     console.table({ collectionName, docId, fieldName, value });
     const docRef = firebaseDatabase.doc(`${collectionName}/${docId}`);
     return docRef
-      .update({ [fieldName]: value })
+      .set({ [fieldName]: value }, { merge: true })  // Use set with merge to create or update
       .then(() => {
-        console.log("Document successfully updated!");
+        console.log("Document successfully set or updated!");
       })
       .catch((error) => {
-        console.error("Error updating document: ", error);
+        console.error("Error setting or updating document: ", error);
       });
   } catch (err) {
     console.error(`setField error: ${err}`);
